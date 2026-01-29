@@ -7,15 +7,23 @@ app = Flask(__name__)
 cors = CORS(app, origins='*')
 
 
-@app.route("/api/users", methods=["GET"])
+@app.route("/api/sample", methods=["GET"])
 def users():
+    scizor = pb.pokemon("scizor")
     return jsonify (
         {
-            "users": [
-                "Ash",
-                "Brock",
-                "Misty",
-            ]
+            "name": scizor.name,
+            "sprite_front_default": scizor.sprites.front_default,
+            "base_stats": [
+                {"hp": scizor.stats[0].base_stat},
+                {"attack": scizor.stats[1].base_stat},
+                {"defense": scizor.stats[2].base_stat},
+                {"special_attack": scizor.stats[3].base_stat},
+                {"special_defense": scizor.stats[4].base_stat},
+                {"speed": scizor.stats[5].base_stat},
+            ],
+            "cry_latest": scizor.cries.latest,
+            "pokedex_number": scizor.id,
         }
     )
 
@@ -46,7 +54,6 @@ def pokemon():
                 "pokedex_number": _pokemon.id,
             }
         )
-        return {}
     return {}
 
 
