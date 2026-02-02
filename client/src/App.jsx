@@ -32,11 +32,11 @@ function App() {
         <ImageViewer url={pokemonObject.sprite_front_shiny}/>
         <ImageViewer url={pokemonObject.sprite_back_shiny}/>
       </div>
-      <div>
+      <div className="audio">
         <p>Cry (Current):</p>
         <AudioPlayer url={pokemonObject.cry_latest}/>
       </div>
-      <div>
+      <div className="audio">
         <p>Cry (Original):</p>
         <AudioPlayer url={pokemonObject.cry_legacy}/>
       </div>
