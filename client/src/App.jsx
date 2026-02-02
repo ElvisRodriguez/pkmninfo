@@ -18,7 +18,6 @@ function App() {
       {"pokemon_name": input}
     );
     setObject(response.data);
-
   }
 
   return (
